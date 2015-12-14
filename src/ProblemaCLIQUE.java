@@ -12,41 +12,38 @@ public class ProblemaCLIQUE {
 	public void resolver(){
 		boolean fin = false;
 		int i = 0;
-		while(!fin || i < Math.pow(2, getInstancia().getElementos())){
+		while(!fin){
 			generarAsignacion(i);
-			if(formaClique())
+			if(formaClique()){
 				fin = true;
+			}
 			i++;
+			
 		}
-		if(fin)
-			System.out.println("Hay solucion" + asignacion);
-		else
-			System.out.println("No hay solucion");
+		if(!fin)
+			System.out.println("No hay solucion");;
 	}
 	
 	private boolean formaClique(){
 		int grupoCounter = 0;
 		int j = 0;
-		int h = 0;
-		while(j < getInstancia().getNodos().size() && grupoCounter < getInstancia().getK()){
-			System.out.println("asignacion " + asignacion + " mirando nodo " + j);
-			if(getInstancia().getNodos().get(j).getGrupo() == grupoCounter){
-				if(getInstancia().getNodos().get(j).getCont().equals(getInstancia().getCaracteres().get(h))){
-					if((getInstancia().getNodos().get(j).isEstado() == asignacion.get(h))){
-						grupoCounter++;
-						h++;
-					}	
+		while(j < getInstancia().getNodos().size()){
+			for(int i = 0; i < asignacion.size(); i++){
+				if(getInstancia().getNodos().get(j).getGrupo() == grupoCounter){
+					if(getInstancia().getNodos().get(j).getCont().equals(getInstancia().getCaracteres().get(i))){
+						if((getInstancia().getNodos().get(j).isEstado() == asignacion.get(i))){
+							grupoCounter++;
+							if(grupoCounter == getInstancia().getK()){
+								System.out.println("Hay solucion" + asignacion);
+								return true;
+							}
+						}
+					}
 				}
 			}
 			j++;
 		}
-		if(grupoCounter == getInstancia().getK())
-			break;
-		j = 0;
-		if(grupoCounter == getInstancia().getK())
-			return true;
-		else 
-			return false;
+		return false;
 	}
 	
 	
