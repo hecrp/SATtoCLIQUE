@@ -10,11 +10,20 @@ public class Nodo {
 	private int id;
 	private String cont;
 	private int grupo;
+	private boolean estado; //falso = negado, true = no negado
 	
 	public Nodo(int id, String contenido, int grp) {
 		setId(id);
-		setCont(contenido);
 		setGrupo(grp);	
+		setCont(contenido);
+		
+		if(contenido.contains("¬")) {
+			setEstado(false);
+		}
+		else {
+			setEstado(true);
+		}
+		
 	}
 
 	public int getId() {
@@ -39,6 +48,14 @@ public class Nodo {
 
 	public void setGrupo(int grupo) {
 		this.grupo = grupo;
+	}
+	
+	public boolean isEstado() {
+		return estado;
+	}
+
+	public void setEstado(boolean estado) {
+		this.estado = estado;
 	}
 	
 }
