@@ -16,12 +16,13 @@ public class InstanciaSAT {
 	private ArrayList<String> elementos;
 	private Integer elementosCounter;
 	
-	public InstanciaSAT(String filename) throws FileNotFoundException{
+	public InstanciaSAT(String filename) throws IOException{
 		setfReader(new FileReader(filename));
 		setbReader(new BufferedReader(fReader));
 		setClausulas(new ArrayList<Clausula>());
 		setElementos(new ArrayList<String>());
 		setElementosCounter(new Integer(0));
+		this.parse();
 	}
 	
 	private void parse() throws IOException{
@@ -37,8 +38,8 @@ public class InstanciaSAT {
 	    
 	    while(lineaClausula != null) {
 	    	st = new StringTokenizer(lineaClausula);
+	    	Clausula aux = new Clausula();
 	    	while (st.hasMoreTokens()) {
-		    	 Clausula aux = new Clausula();
 		    	 aux.add(st.nextToken());
 		    	 getClausulas().add(aux);
 		    }
