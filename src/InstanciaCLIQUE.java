@@ -33,7 +33,7 @@ public class InstanciaCLIQUE {
 						aristas[i][j] = true;
 					}
 					else{
-						if(getNodos().get(i).getEstado() == getNodos().get(j).getEstado())
+						if(getNodos().get(i).isEstado() == getNodos().get(j).isEstado())
 							aristas[i][j] = true;
 					}
 				}
