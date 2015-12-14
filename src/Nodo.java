@@ -17,7 +17,7 @@ public class Nodo {
 		setGrupo(grp);	
 		setCont(contenido);
 		
-		if(contenido.contains("¬")) {
+		if(contenido.contains("n")) {
 			setEstado(false);
 		}
 		else {

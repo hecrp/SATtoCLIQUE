@@ -1,5 +1,5 @@
 x y z
-¬x y z
-x ¬y z
+nx y z
+x ny z
 y z
-¬x ¬y ¬z
+nx ny nz
