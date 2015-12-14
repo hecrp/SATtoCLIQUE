@@ -41,8 +41,8 @@ public class InstanciaSAT {
 	    	Clausula aux = new Clausula();
 	    	while (st.hasMoreTokens()) {
 		    	 aux.add(st.nextToken());
-		    	 getClausulas().add(aux);
 		    }
+	    	getClausulas().add(aux);
 	    	lineaClausula = getbReader().readLine();
 	    }
 	    

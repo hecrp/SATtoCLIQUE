@@ -7,10 +7,14 @@ public class InstanciaCLIQUE {
 	private boolean[][] aristas;
 	
 	private Integer k;
+	private Integer elementos;
+	private ArrayList<String> caracteres;
 	
 	public InstanciaCLIQUE(InstanciaSAT problemaSAT){
 		setK(problemaSAT.getClausulas().size());
+		setElementos(problemaSAT.getElementosCounter());
 		setNodos(new ArrayList<Nodo>());
+		setCaracteres(problemaSAT.getElementos());
 		int id = 0;
 		for(int i = 0; i < problemaSAT.getClausulas().size(); i++){
 			for(int j = 0; j < problemaSAT.getClausulas().get(i).getElementos().size(); j++){
@@ -63,6 +67,22 @@ public class InstanciaCLIQUE {
 
 	public void setK(Integer k) {
 		this.k = k;
+	}
+
+	public Integer getElementos() {
+		return elementos;
+	}
+
+	public void setElementos(Integer elementos) {
+		this.elementos = elementos;
+	}
+
+	public ArrayList<String> getCaracteres() {
+		return caracteres;
+	}
+
+	public void setCaracteres(ArrayList<String> caracteres) {
+		this.caracteres = caracteres;
 	}
 	
 	
