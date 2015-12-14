@@ -15,7 +15,13 @@ public class Nodo {
 	public Nodo(int id, String contenido, int grp) {
 		setId(id);
 		setGrupo(grp);	
-		setCont(contenido);
+		
+		if(contenido.length() == 2) {
+			setCont(contenido.substring(1));
+		}
+		else {
+			setCont(contenido);
+		}		
 		
 		if(contenido.contains("n")) {
 			setEstado(false);
