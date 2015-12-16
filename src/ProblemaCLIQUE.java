@@ -63,7 +63,7 @@ public class ProblemaCLIQUE {
 	 * @param num
 	 */
 	private void generarAsignacion(Integer num) {
-		String binario = Integer.toBinaryString(num+3);
+		String binario = Integer.toBinaryString(num);
 		asignacion = new ArrayList<Boolean>();
 
 		for (int i = 0; i < binario.length(); i++) {
