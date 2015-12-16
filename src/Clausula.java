@@ -1,15 +1,18 @@
 import java.util.ArrayList;
 
-
+/**
+ * Esta clase representa una clausula.
+ * Contiene elementos(caracteres) parseados del fichero fuente
+ */
 public class Clausula {
-	
+
 	private ArrayList<String> Elementos;
 
 	public Clausula() {
 		setElementos(new ArrayList<String>());
 	}
-	
-	public void add(String elemento){
+
+	public void add(String elemento) {
 		getElementos().add(elemento);
 	}
 
@@ -21,5 +24,4 @@ public class Clausula {
 		Elementos = elementos;
 	}
 
-	
 }

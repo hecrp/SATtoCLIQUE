@@ -1,22 +1,29 @@
 import java.io.BufferedReader;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.StringTokenizer;
 
-
+/**
+ * Esta clase representa un problema SAT, se lee de un fichero de texto
+ * las proposiciones logicas y se crean las clausulas
+ */
 public class InstanciaSAT {
-	
+
 	private FileReader fReader;
 	private BufferedReader bReader;
-	
+
 	private ArrayList<Clausula> clausulas;
-	
+
 	private ArrayList<String> elementos;
 	private Integer elementosCounter;
-	
-	public InstanciaSAT(String filename) throws IOException{
+
+	/**
+	 * Lectura del fichero fuente y parseo
+	 * @param filename
+	 * @throws IOException
+	 */
+	public InstanciaSAT(String filename) throws IOException {
 		setfReader(new FileReader(filename));
 		setbReader(new BufferedReader(fReader));
 		setClausulas(new ArrayList<Clausula>());
@@ -24,29 +31,33 @@ public class InstanciaSAT {
 		setElementosCounter(new Integer(0));
 		this.parse();
 	}
-	
-	private void parse() throws IOException{
+
+	/**
+	 * Inicializacion de las clausulas
+	 * @throws IOException
+	 */
+	private void parse() throws IOException {
 		String stringElementos = getbReader().readLine();
 		StringTokenizer st = new StringTokenizer(stringElementos);
-		
-	    while (st.hasMoreTokens()) {
-	    	 setElementosCounter(getElementosCounter() + 1);
-	    	 getElementos().add(st.nextToken());    
-	    }
-	    
-	    String lineaClausula = getbReader().readLine();
-	    
-	    while(lineaClausula != null) {
-	    	st = new StringTokenizer(lineaClausula);
-	    	Clausula aux = new Clausula();
-	    	while (st.hasMoreTokens()) {
-		    	 aux.add(st.nextToken());
-		    }
-	    	getClausulas().add(aux);
-	    	lineaClausula = getbReader().readLine();
-	    }
-	    
-	    getbReader().close();
+
+		while (st.hasMoreTokens()) {
+			setElementosCounter(getElementosCounter() + 1);
+			getElementos().add(st.nextToken());
+		}
+
+		String lineaClausula = getbReader().readLine();
+
+		while (lineaClausula != null) {
+			st = new StringTokenizer(lineaClausula);
+			Clausula aux = new Clausula();
+			while (st.hasMoreTokens()) {
+				aux.add(st.nextToken());
+			}
+			getClausulas().add(aux);
+			lineaClausula = getbReader().readLine();
+		}
+
+		getbReader().close();
 	}
 
 	public FileReader getfReader() {
@@ -89,5 +100,4 @@ public class InstanciaSAT {
 		this.elementosCounter = elementosCounter;
 	}
 
-	
 }

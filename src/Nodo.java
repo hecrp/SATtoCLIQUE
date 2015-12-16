@@ -1,35 +1,33 @@
 /**
  * 
- * La clase Nodo representa un nodo en el grafo final,
- * cada nodo contiene un ID numerico para identificarlo en base a
- * el total de nodos, un grupo(clusters) al que pertenece y el contenido del nodo.
+ * La clase Nodo representa un nodo en el grafo final, cada nodo contiene un ID
+ * numerico para identificarlo en base a el total de nodos, un grupo(clusters)
+ * al que pertenece y el contenido del nodo.
  * 
  */
 public class Nodo {
-	
+
 	private int id;
 	private String cont;
 	private int grupo;
-	private boolean estado; //falso = negado, true = no negado
-	
+	private boolean estado; // falso = negado, true = no negado
+
 	public Nodo(int id, String contenido, int grp) {
 		setId(id);
-		setGrupo(grp);	
-		
-		if(contenido.length() == 2) {
+		setGrupo(grp);
+
+		if (contenido.length() == 2) {
 			setCont(contenido.substring(1));
-		}
-		else {
+		} else {
 			setCont(contenido);
-		}		
-		
-		if(contenido.contains("n")) {
-			setEstado(false);
 		}
-		else {
+
+		if (contenido.contains("n")) {
+			setEstado(false);
+		} else {
 			setEstado(true);
 		}
-		
+
 	}
 
 	public int getId() {
@@ -55,7 +53,7 @@ public class Nodo {
 	public void setGrupo(int grupo) {
 		this.grupo = grupo;
 	}
-	
+
 	public boolean isEstado() {
 		return estado;
 	}
@@ -63,5 +61,5 @@ public class Nodo {
 	public void setEstado(boolean estado) {
 		this.estado = estado;
 	}
-	
+
 }
